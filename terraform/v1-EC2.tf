@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "demo-server" {
     ami = "ami-03bb6d83c60fc5f7c"
     instance_type = "t2.micro"
-    key_name = "demo-keypair"
+    key_name = "demokp"
     //security_groups = [ "demo-sg" ]
     vpc_security_group_ids = [aws_security_group.demo-sg.id]
     subnet_id = aws_subnet.dpp-public-subnet-01.id 
@@ -46,7 +46,6 @@ resource "aws_security_group" "demo-sg" {
 
   tags = {
     Name = "ssh-port"
-
   }
 }
 
